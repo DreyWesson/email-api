@@ -2,9 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 const app = express();
-
+console.log(process.env.API_KEY);
+console.log(process.env.AUDIENCE_KEY);
 // Bodyparser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,7 +15,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Signup Route
 app.post("/signup", (req, res) => {
-  console.log(req.body);
   const { firstName, lastName, email } = req.body;
 
   // Make sure fields are filled
@@ -38,10 +39,10 @@ app.post("/signup", (req, res) => {
 
   const postData = JSON.stringify(data);
 
-  fetch("https://us10.api.mailchimp.com/3.0/lists/5cd10fa4d2", {
+  fetch(`https://us10.api.mailchimp.com/3.0/lists/${AUDIENCE_KEY}`, {
     method: "POST",
     headers: {
-      Authorization: "auth 7e5a35c9b61a6fe243ad790e7f7c07c9-us10",
+      Authorization: `${process.env.API_KEY}`,
     },
     body: postData,
   })
