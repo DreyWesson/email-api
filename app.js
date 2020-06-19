@@ -5,7 +5,6 @@ const fetch = require("node-fetch");
 require("dotenv").config();
 
 const app = express();
-console.log(process.env.API_KEY);
 
 // Bodyparser Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
