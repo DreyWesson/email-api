@@ -1,10 +1,8 @@
-# MailChimp Newsletter Signup
+## Quick Start
 
 > Email Api for Newsletter signup using Node.js/Express and the Mailchimp API. Fill in your [audience ID] and your [API Key] in app.js
 
-## Quick Start
-
-```bash
+```bash/zsh
 # Install dependencies
 npm install
 
